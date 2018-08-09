@@ -36,11 +36,11 @@ char* longestCommonPrefix(char** strs, int strsSize){
 int main(int argc, char const *argv[])
 {
 	//char *a[] = {"flower","flow","flight"}; 
-	//char *a[] = {"dog","racecar","car"}; 
-	char *a[] = {"abca","abc"};
+	char *a[] = {"dog","racecar","car"}; 
+	//char *a[] = {"abca","abc"};
 	
 	char**strs = a;
-	char*comm_str = longestCommonPrefix(strs,2);
+	char*comm_str = longestCommonPrefix(strs,sizeof(a)/sizeof(a[0]));
 	printf("%s\n",comm_str );
 	return 0;
 }
