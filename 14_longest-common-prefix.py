@@ -27,15 +27,12 @@ class Solution:
         :type strs: List[str]
         :rtype: str
         """
-        ## 先计算出最短的字符串的长度min_len
         if strs == []:
             print("input is []")
             return ""
-        lens = []
-        for str in strs:
-            lens.append(len(str))
-        lens.sort()
-        min_len = lens[0]
+        ## 先计算出最短的字符串的长度min_len    
+        min_str = sorted(strs, key=lambda x: len(x))[0]
+        min_len = len(min_str)
 
         ## 从0-min_len 对strs[0]遍历
         for pos in range(0,min_len):
@@ -43,6 +40,7 @@ class Solution:
                 if strs[0][:pos+1] != str[:pos+1]:
                     return "" if pos == 0 else str[:pos]
         return strs[0][:min_len]  ## 如果比较完了min_len都还没找到差异，那么return strs[0][:min_len] 
+        
 if __name__ == '__main__':
 	s = Solution()
 	print(s.longestCommonPrefix(["flower","flow","flight"]) )
