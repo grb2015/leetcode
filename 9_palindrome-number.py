@@ -4,14 +4,7 @@ class Solution:
         :type x: int
         :rtype: bool
         """
-        if x< 0:
-        	return False
-        str_x = str(x)
-        str_x_len = len(str_x)
-        for i in range(str_x_len//2+1):
-        	if str_x[i] != str_x[str_x_len-1-i]:
-        		return False
-        return True
+        return str(x) == str(x)[::-1]
 if __name__ == '__main__':
 	s = Solution()
 	xs = [-123,0,12321]
