@@ -34,36 +34,20 @@
 则对栈进行pop操作表明顶部元素已被匹配，否则为不匹配情况.
 直接返回false .当整个字符串遍历结束，我们就可以通过判断该栈是否为空来判断整个字符串中的符号是否匹配
 
+version2: 20180811 改进，精简代码
 
 '''
 class Solution:
     def isValid(self, s):
-        """
-        :type s: str
-        :rtype: bool
-        """
-        if(len(s) == 0):  ## for ""
-        	return True
-        dict_prths = {'(':')','[':']','{':'}'}  # dict parentheses
-        s_left  = []  # stored all the left parenthes in s 
-        s_right = []  # right 
-
-        for c in s:
-        	if c not in dict_prths.keys() and c not in dict_prths.values():
-        		return False
-       	stack = []   # python中栈可以就是list 
-        for i in range(len(s)):
-        	if s[i] in dict_prths.keys():
-        		stack.append(s[i])
-        	elif  s[i] in dict_prths.values():
-        		if len(stack) > 0:
-        			if dict_prths[stack.pop()] != s[i]:
-        				return False
-        		else: ## for "))"
-        			return False
-        	else:
-        		return False
-        return False if  len(stack) > 0  else  True  ## for "((" 
+        stack = []
+        dict_prths = {'(':')','[':']','{':'}'} 
+        for char in s:
+            if char in dict_prths.keys(): # 左括号入栈
+                stack.append(char)
+            else: # 非左括号(右括号或者其他非法字符），与pop比较
+                if len(stack) == 0 or dict_prths[stack.pop()] != char:
+                    return False
+        return len(stack)==0 ## for "{{"
 s = Solution()
 print(s.isValid("()") )  # True
 print(s.isValid("()[]{}")) # True
