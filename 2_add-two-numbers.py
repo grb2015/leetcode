@@ -24,6 +24,10 @@
 	   再将str1 和 str2相加(要转为int才能加, 有可能链表有几百个节点，这时候有可能超过python表示的数据范围,可能有Bug)
 	   然后在将相加的结果组建为一个新的链表。
     TODO: 转为Int求和可能有Bug
+	  version2: 不转为int型，直接对每一位进行相加，考虑进位即可。
+	  参考：https://github.com/Jack-Cherish/LeetCode/blob/master/Linked%20List/Medium/2.Add%20Two%20Numbers.md
+		https://leetcode-cn.com/problems/add-two-numbers/solution/
+
 '''
 class Solution:
     def addTwoNumbers(self, l1, l2):
