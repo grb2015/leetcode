@@ -2,7 +2,7 @@
 # @Author: Teiei
 # @Date:   2018-08-18 15:29:23
 # @Last Modified by:   Teiei
-# @Last Modified time: 2018-08-18 17:36:13
+# @Last Modified time: 2018-08-18 18:47:40
 
 from Graph import Graph
 
@@ -16,11 +16,11 @@ def DFS(G, v):
 		G {[Graph]} -- [图的数据结构]
 		v {[int]} -- [起始节点]
 	'''
-	G.set_mark(v)
+	G.set_mark_visited(v)
 	print(v)
 	t = G.first(v)
 	while(t != -1):
-		if(G.mark[t] == "UNVISTED"):
+		if(G.mark[t] == "UNVISITED"):
 			DFS(G,t)
 		t = G.next(v,t)
 	

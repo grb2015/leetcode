@@ -2,7 +2,7 @@
 # @Author: Teiei
 # @Date:   2018-08-18 17:41:46
 # @Last Modified by:   Teiei
-# @Last Modified time: 2018-08-18 18:28:32
+# @Last Modified time: 2018-08-18 18:47:42
 from Graph import Graph
 def BFS(G,start):
 	'''[summary] 图的宽度优先遍历
@@ -15,7 +15,7 @@ def BFS(G,start):
 	''' 
 	queue = []
 	queue.append(start)
-	G.set_mark(start)
+	G.set_mark_visited(start)
 	while(len(queue) != 0):
 		# dequeue
 		v = queue[0]
@@ -23,8 +23,8 @@ def BFS(G,start):
 		queue = queue[1:]
 		t = G.first(v)
 		while(t != -1):
-			if(G.mark[t] == "UNVISTED"):
-				G.set_mark(t)
+			if(G.mark[t] == "UNVISITED"):
+				G.set_mark_visited(t)
 				queue.append(t)
 			t = G.next(v,t)
 if __name__ == '__main__':
