@@ -1,4 +1,5 @@
 #https://leetcode-cn.com/problems/second-highest-salary/description/
+# 知识点： distinct/null的处理
 # 返回第二高的薪水。如果不存在第二高的薪水，那么查询应返回 null。
 
 # issue1: 没有正确处理null的情况

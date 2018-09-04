@@ -2,8 +2,9 @@
 * @Author: Teiei
 * @Date:   2018-09-04 07:52:35
 * @Last Modified by:   Teiei
-* @Last Modified time: 2018-09-04 08:16:00
+* @Last Modified time: 2018-09-04 16:23:05
 * https://leetcode-cn.com/problems/combine-two-tables/description/
+* 知识点：连接(join)
 */
 create table Person (PersonId int, FirstName varchar(255), LastName varchar(255))
 Create table Address (AddressId int, PersonId int, City varchar(255), State varchar(255))
