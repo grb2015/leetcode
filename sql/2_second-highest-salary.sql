@@ -10,4 +10,10 @@
 #insert into  Employee(Id,Salary) values('1','100');
 
 #select * from Employee ORDER BY Salary desc LIMIT 1,1;
-select Salary as SecondHighestSalary  from Employee ORDER BY Salary desc LIMIT 1,1;
+#select Salary as SecondHighestSalary  from Employee ORDER BY Salary desc LIMIT 1,1;
+--另一种as的用法
+#select (select Salary  from Employee ORDER BY Salary desc LIMIT 1,1 )as SecondHighestSalary ;
+
+-- version2 :使用Distinct来处理重复的Salary,使用IFNULL函数来处理空
+select IFNULL((select Distinct Salary from Employee order by Salary DESC limit 1,1),null)
+as SecondHighestSalary
