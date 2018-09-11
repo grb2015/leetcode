@@ -2,7 +2,7 @@
 * @Author: Teiei
 * @Date:   2018-09-10 09:47:42
 * @Last Modified by:   Teiei
-* @Last Modified time: 2018-09-10 13:05:36
+* @Last Modified time: 2018-09-11 09:11:40
 *  删除重复的电子邮箱 ：https://leetcode-cn.com/problems/delete-duplicate-emails/description/
 *  知识点：删除重复的记录.
 *  		> delete删除多表和单表的格式 https://dev.mysql.com/doc/refman/8.0/en/delete.html
@@ -62,6 +62,14 @@ ID
 2
 3
 不正确。
+但是如果我先对id进行排序，再SELECT  Id FROM Person GROUP BY Email;应该就可以了
+错！即便是先排序也是不行的：
+create view p1  as select *from person6 order by id  ;  
+SELECT *from p1 GROUP BY email;
+这样查出来仍然是：
+2	bob@example.com
+3	john@example.com
+
 
 2. DELETE FROM Person6 WHERE Id NOT IN (SELECT MIN(Id) Id FROM Person6 GROUP BY Email );
 这种查询看起来可以了，但是会报错。
