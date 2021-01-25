@@ -17,7 +17,7 @@ class Solution:
 			return 0
 		return rx
 if __name__ == '__main__':
-    s = Solution();
+    s = Solution()
     print(s.reverse(9876543210))
     print(s.reverse(-123))
     print(s.reverse(1234567899))
