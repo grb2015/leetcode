@@ -22,7 +22,9 @@
                 来源：力扣（LeetCode）
                 链接：https://leetcode-cn.com/problems/palindrome-number
                 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
-#   note    :  
+#   note    :  思路：
+#               step1:  剔除异常 负数和0
+                step2:  讲int转为str 然后首尾第i个所有对应相等,则为回文数
 
 '''
 class Solution(object):
