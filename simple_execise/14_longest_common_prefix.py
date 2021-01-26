@@ -21,7 +21,8 @@
                 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 #   note    :  思路： 
                     step1: 异常剔除  是否有为空字符的情形。若有则返回""
-                    step2: 所有str至少都有一个字符了。遍历第一个str的从i到len,然后去其它所有str进行比较即可
+                    step2: 所有str至少都有一个字符了,找出最短的那个str_short
+                    step3: 遍历该str_short从i到len,然后去其它所有str进行比较即可
 
 
 '''
@@ -31,12 +32,17 @@ class Solution(object):
         for  s in strs:
             if not s:
                 return ""
-        # step2
-        for i in range(  len(strs[0]) ):  # 取strs[0]的index 
+        # step2:
+        str_short = strs[0]
+        for s in strs:
+            if len(s) < len(str_short):
+                str_short = s
+        # step3
+        for i in range(  len(str_short) ):  # 取strs[0]的index 
             for s in strs:
-                if s[i] != strs[0][i]:  # strs中每个str都取第i个元素，看与strs[0]的第i个元素是否相等 #TODO: 存在bug 可能 i 超过了某个s的下标
-                    return strs[0][0:i]
-
+                if s[i] != str_short[i]:  # strs中每个str都取第i个元素，看与strs[0]的第i个元素是否相等 #TODO: 存在bug 可能 i 超过了某个s的下标
+                    return str_short[0:i]
+        return str_short
 
 if __name__ == '__main__':
     import unittest
@@ -49,4 +55,7 @@ if __name__ == '__main__':
             # test 2:
             print(S.longestCommonPrefix( ["dog","racecar","car"] ))
             self.assertEqual(S.longestCommonPrefix( ["dog","racecar","car"] ) , "")
+
+            # rbg test 3:
+            self.assertEqual(S.longestCommonPrefix(  ["flower","fl","flight"] ) , "fl")
     unittest.main()
