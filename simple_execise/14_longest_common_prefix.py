@@ -20,7 +20,7 @@
                 链接：https://leetcode-cn.com/problems/longest-common-prefix
                 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 #   note    :  思路： 
-                    step1: 异常剔除  是否有为空字符的情形。若有则返回""
+                    step1: 异常剔除  是否有为空字符的情形。若有则返回"" ;若正是个strs都为空，返回。
                     step2: 所有str至少都有一个字符了,找出最短的那个str_short
                     step3: 遍历该str_short从i到len,然后去其它所有str进行比较即可
 
@@ -29,7 +29,11 @@
 class Solution(object):
     def longestCommonPrefix(self, strs):
         # step1
+        print("strs = ",strs)
+        if not strs:
+            return ""
         for  s in strs:
+            print("s = ",s)
             if not s:
                 return ""
         # step2:
@@ -58,4 +62,6 @@ if __name__ == '__main__':
 
             # rbg test 3:
             self.assertEqual(S.longestCommonPrefix(  ["flower","fl","flight"] ) , "fl")
+            # rbg test 4:
+            self.assertEqual(S.longestCommonPrefix(  [] ) , "")
     unittest.main()
